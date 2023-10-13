@@ -1,3 +1,30 @@
 //LOCAL HOST
 ### Get all employees
 GET http://localhost:8080/employees
+
+### create employee
+POST http://localhost:8080/employees HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Harry",
+    "lastName": "Clarke",
+    "position": "Campus Recruiter",
+    "department": "HR",
+    "gender": "Male",
+    "dob": "09/20/2004"
+}
+
+### update employee
+PUT http://localhost:8080/employees/6528c947e477812b3cb63229 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Harry",
+    "lastName": "Clarke",
+    "position": "Campus Recruiter",
+    "department": "HR",
+    "gender": "Male",
+    "dob": "09/20/2006"
+}
+

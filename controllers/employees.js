@@ -11,4 +11,44 @@ const getAll = async (req, res) => {
     });
   };
 
-module.exports= {getAll}
+//updating employee with id
+const updateEmployee = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const employee = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        position: req.body.position,
+        department: req.body.department,
+        gender: req.body.gender,
+        dob: req.body.dob
+      }
+    const result = await mongodb.getDb().db('employees').collection('employees').replaceOne({ _id: userId }, employee);
+    if (result.acknowledged){
+      res.status(204).json(result);
+    } else {
+      res.status(500).json(result.error);
+    }
+  
+  }
+  
+
+//creating new employee
+const createEmployee = async (req, res) => {
+    const employee = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      position: req.body.position,
+      department: req.body.department,
+      gender: req.body.gender,
+      dob: req.body.dob
+    }
+    const result = await mongodb.getDb().db('employees').collection('employees').insertOne(employee);
+    console.log(result)
+    if (result.acknowledged){
+      res.status(201).json(result);
+    } else {
+      res.status(500).json(result.error);
+    }
+  }
+
+module.exports= {getAll, createEmployee, updateEmployee}

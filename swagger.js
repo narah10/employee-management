@@ -6,7 +6,7 @@ const doc = {
     description: 'Description',
   },
   host: 'narah-employee-management.onrender.com',
-  schemes: ['http'],
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';

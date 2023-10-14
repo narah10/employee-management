@@ -8,7 +8,7 @@
   "host": "narah-employee-management.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/employees/": {

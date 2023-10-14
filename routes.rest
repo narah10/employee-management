@@ -28,3 +28,34 @@ content-type: application/json
     "dob": "09/20/2006"
 }
 
+
+//PRODUCTION
+### Get all employees
+GET https://narah-employee-management.onrender.com/employees
+
+### create employee
+POST https://narah-employee-management.onrender.com/employees HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Harry",
+    "lastName": "Clarke",
+    "position": "Campus Recruiter",
+    "department": "HR",
+    "gender": "Male",
+    "dob": "09/20/2004"
+}
+
+### update employee
+PUT https://narah-employee-management.onrender.com/employees HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Harry",
+    "lastName": "Clarke",
+    "position": "Campus Recruiter",
+    "department": "HR",
+    "gender": "Male",
+    "dob": "09/20/2006"
+}
+

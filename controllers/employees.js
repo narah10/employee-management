@@ -78,6 +78,9 @@ const createEmployee = async (req, res) => {
 
 //deleting employee
 const deleteEmployee = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid contact id to delete an employee info.');
+  }
   const userId = new ObjectId(req.params.id);
   const result = await mongodb.getDb().db('employees').collection('employees').deleteOne({ _id: userId }, true);
   if (result.deletedCount > 0){

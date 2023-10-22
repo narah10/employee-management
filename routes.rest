@@ -38,6 +38,9 @@ DELETE http://localhost:8080/employees/6534862841bf8f8b73ea295a HTTP/1.1
 ### Get all employees
 GET https://narah-employee-management.onrender.com/employees
 
+### Get all contacts by id
+GET http://localhost:8080/employees/6528be21c62ca7750fa721b1
+
 ### create employee
 POST https://narah-employee-management.onrender.com/employees HTTP/1.1
 content-type: application/json
@@ -52,7 +55,7 @@ content-type: application/json
 }
 
 ### update employee
-PUT https://narah-employee-management.onrender.com/employees HTTP/1.1
+PUT https://narah-employee-management.onrender.com/employees/6528be21c62ca7750fa721b1 HTTP/1.1
 content-type: application/json
 
 {
@@ -64,3 +67,5 @@ content-type: application/json
     "dob": "09/20/2006"
 }
 
+### Delete contact
+DELETE https://narah-employee-management.onrender.com/employees/6528be21c62ca7750fa721b1 HTTP/1.1

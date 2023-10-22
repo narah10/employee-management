@@ -18,7 +18,7 @@ const getAll = async (req, res) => {
 //get single employee with id
 const getSingle = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid contact id to find a contact.');
+    res.status(400).json('Must use a valid contact id to find an employee.');
   }
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
@@ -36,7 +36,7 @@ const getSingle = async (req, res) => {
 //updating employee with id
 const updateEmployee = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid contact id to find a contact.');
+    res.status(400).json('Must use a valid contact id to find an employee.');
   }
     const userId = new ObjectId(req.params.id);
     const employee = {

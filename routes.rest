@@ -36,6 +36,9 @@ content-type: application/json
 ### Delete contact
 DELETE http://localhost:8080/employees/653d65f8b8c3f92347845d4d HTTP/1.1
 
+### Get all departments
+GET http://localhost:8080/department
+
 //PRODUCTION
 ### Get all employees
 GET https://narah-employee-management.onrender.com/employees

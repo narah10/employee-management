@@ -15,7 +15,9 @@ content-type: application/json
     "position": "Campus Recruiter",
     "department": "HR",
     "gender": "Male",
-    "dob": "09/20/2004"
+    "dob": "09/20/2004",
+    "phoneNumber": "2071234444",
+    "startDate": "12/11/2022"
 }
 
 ### update employee
@@ -32,7 +34,7 @@ content-type: application/json
 }
 
 ### Delete contact
-DELETE http://localhost:8080/employees/6534862841bf8f8b73ea295a HTTP/1.1
+DELETE http://localhost:8080/employees/653d65f8b8c3f92347845d4d HTTP/1.1
 
 //PRODUCTION
 ### Get all employees

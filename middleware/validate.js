@@ -7,7 +7,9 @@ const saveEmployee = (req, res, next) => {
     position: 'required|string',
     department: 'required|string',
     gender: 'required|string',
-    dob: 'string'
+    dob: 'string',
+    phoneNumber: 'required|string',
+    startDate: 'required|string'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {

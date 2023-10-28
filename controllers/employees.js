@@ -40,12 +40,14 @@ const updateEmployee = async (req, res) => {
   }
     const userId = new ObjectId(req.params.id);
     const employee = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        position: req.body.position,
-        department: req.body.department,
-        gender: req.body.gender,
-        dob: req.body.dob
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      position: req.body.position,
+      department: req.body.department,
+      gender: req.body.gender,
+      dob: req.body.dob,
+      phoneNumber: req.body.phoneNumber,
+      startDate: req.body.startDate
       }
     const result = await mongodb.getDb().db('employees').collection('employees').replaceOne({ _id: userId }, employee);
     if (result.modifiedCount > 0){
@@ -65,7 +67,9 @@ const createEmployee = async (req, res) => {
       position: req.body.position,
       department: req.body.department,
       gender: req.body.gender,
-      dob: req.body.dob
+      dob: req.body.dob,
+      phoneNumber: req.body.phoneNumber,
+      startDate: req.body.startDate
     }
     const result = await mongodb.getDb().db('employees').collection('employees').insertOne(employee);
     console.log(result)

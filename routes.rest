@@ -36,8 +36,22 @@ content-type: application/json
 ### Delete contact
 DELETE http://localhost:8080/employees/653d65f8b8c3f92347845d4d HTTP/1.1
 
+//Departments Local
 ### Get all departments
 GET http://localhost:8080/department
+
+### Get all contacts by id
+GET http://localhost:8080/department/653d624a1af9a3794eab3a50
+
+### create department
+POST http://localhost:8080/department HTTP/1.1
+content-type: application/json
+
+{
+    "departmentName": "Finance",
+    "departmentHead": "Bobby Mane",
+    "departmentBudget": "$2000000",
+}
 
 //PRODUCTION
 ### Get all employees

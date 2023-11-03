@@ -34,9 +34,9 @@ content-type: application/json
 }
 
 ### Delete contact
-DELETE http://localhost:8080/employees/653d65f8b8c3f92347845d4d HTTP/1.1
+DELETE http://localhost:8080/employees/654460a6c99498c754935a7d HTTP/1.1
 
-//Departments Local
+//DEPARTMENTS LOCAL
 ### Get all departments
 GET http://localhost:8080/department
 
@@ -48,10 +48,23 @@ POST http://localhost:8080/department HTTP/1.1
 content-type: application/json
 
 {
-    "departmentName": "Finance",
-    "departmentHead": "Bobby Mane",
-    "departmentBudget": "$2000000",
+    "departmentName": "Administration",
+    "departmentHead": "Angelina Jolie",
+    "departmentBudget": "$5000000"
 }
+
+### update employee
+PUT http://localhost:8080/department/6544635f3e490730bb96de38 HTTP/1.1
+content-type: application/json
+
+{
+    "departmentName": "Administration",
+    "departmentHead": "Angelinay Jolie",
+    "departmentBudget": "$5000000"
+}
+
+### Delete contact
+DELETE http://localhost:8080/department/6544635f3e490730bb96de38 HTTP/1.1
 
 //PRODUCTION
 ### Get all employees

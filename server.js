@@ -24,14 +24,11 @@ const config = {
 // Place the authentication middleware at the beginning
 app.use(auth(config));
 
-// Now, all routes below require authentication
-
 // Public route
 app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
-// Secured route
 app.get('/profile', (req, res) => {
   // Requires authentication
   if (!req.oidc.isAuthenticated()) {

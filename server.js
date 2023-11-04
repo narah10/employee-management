@@ -2,21 +2,43 @@ const express = require('express');
 const app = express();
 var cors = require('cors');
 const bodyParser = require('body-parser');
-const routes = require('./routes/index')
-const mongodb = require('./db/connect')
+const routes = require('./routes/index');
+const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const { auth } = require('express-openid-connect');
 
-const port = process.env.PORT || 8080
- 
-// app.get('/', (req, res) => {
-//   res.send("Hello");
-// });
- 
-// app.listen(process.env.PORT || port, () => {
-//   console.log('Web Server is listening at port ' + (process.env.PORT || 3000));
-// });
+require('dotenv').config();
 
+const port = process.env.PORT;
+
+const config = {
+  authRequired: true, // Set to true to enforce authentication for all routes
+  auth0Logout: true,
+  secret: process.env.SESSION_SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.AUTH0_CLIENT_ID,
+  issuerBaseURL: process.env.AUTH0_ISSUER_BASEURL
+};
+
+// Place the authentication middleware at the beginning
+app.use(auth(config));
+
+// Now, all routes below require authentication
+
+// Public route
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
+// Secured route
+app.get('/profile', (req, res) => {
+  // Requires authentication
+  if (!req.oidc.isAuthenticated()) {
+    return res.status(401).send('Not logged in');
+  }
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 app
   .use(cors())

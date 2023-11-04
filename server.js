@@ -15,7 +15,7 @@ const port = process.env.PORT;
 const config = {
   authRequired: true, // Set to true to enforce authentication for all routes
   auth0Logout: true,
-  secret: '9CbRVNLyNw-pDm8sYfeMY9xV0PPUZyYKVrM2fYSbSFjoeaGSz3pC0XlMX7IZ3CjF',
+  secret: process.env.SESSION_SECRET,
   baseURL: process.env.BASE_URL,
   clientID: process.env.AUTH0_CLIENT_ID,
   issuerBaseURL: process.env.AUTH0_ISSUER_BASEURL

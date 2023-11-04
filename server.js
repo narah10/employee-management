@@ -21,7 +21,6 @@ const config = {
   issuerBaseURL: process.env.AUTH0_ISSUER_BASEURL
 };
 
-// Place the authentication middleware at the beginning
 app.use(auth(config));
 
 // Public route

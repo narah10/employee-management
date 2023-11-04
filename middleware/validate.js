@@ -24,6 +24,25 @@ const saveEmployee = (req, res, next) => {
   });
 };
 
+const saveDepartment = (req, res, next) => {
+  const validationRule = {
+    departmentName: 'required|string',
+    departmentHead: 'required|string',
+    departmentBudget: 'required|string',
+  };
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
 module.exports = {
-  saveEmployee
+  saveEmployee, saveDepartment
 };
